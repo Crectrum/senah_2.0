@@ -1,0 +1,235 @@
+/* =========================================================
+   GENERAL RESET
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #1a1a1a;  /* Dark mode default */
+  color: #f5f5f5;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* LIGHT MODE */
+body.light {
+  background-color: #fff;
+  color: #333;
+}
+
+/* =========================================================
+   HEADER & NAVBAR
+========================================================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ff7f50;  /* orangey accent */
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+header img.logo {
+  max-height: 60px;
+  width: auto;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background-color: #fff;
+  color: #ff7f50;
+}
+
+/* =========================================================
+   THEME TOGGLE BUTTON
+========================================================= */
+#theme-toggle {
+  background-color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s;
+}
+
+#theme-toggle img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s;
+}
+
+#theme-toggle.rotate img {
+  transform: rotate(360deg);
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s, transform 0.5s;
+  position: relative;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff7f50;
+  z-index: 1;
+}
+
+section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
+/* BUTTONS INSIDE SECTIONS */
+.section-button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background-color: #ff7f50;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.section-button:hover {
+  background-color: #e06b3f;
+}
+
+/* =========================================================
+   WHY US SECTION BACKGROUND
+========================================================= */
+#why-us {
+  background: url('../assets/backgrounds/background.png') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+}
+
+/* Add dark overlay for readability */
+#why-us::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+
+#why-us * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   STAFF SECTION
+========================================================= */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.staff-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.staff-card img:hover {
+  transform: scale(1.05);
+}
+
+.staff-card p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #ff7f50;
+  text-align: center;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ff7f50;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+}
